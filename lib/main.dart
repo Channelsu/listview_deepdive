@@ -25,6 +25,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
+  final items = List.generate(70, (counter) => 'Item: $counter');
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class _MainPageState extends State<MainPage> {
     if (currentIndex == 0) {
       return buildBasicListView();
     } else if (currentIndex == 1) {
-      return Container();
+      return buildVerticalListView();
     } else if (currentIndex == 2) {
       return Container();
     } else {
@@ -98,5 +99,14 @@ class _MainPageState extends State<MainPage> {
         },
       ),
     ],
+  );
+
+  Widget buildVerticalListView() => ListView.builder(
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+      final item = items[index];
+      return Text(item);
+    },
+
   );
 }
