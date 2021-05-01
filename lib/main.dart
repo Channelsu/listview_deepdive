@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(),
+      body: _buildListView(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         items: [
@@ -56,5 +56,21 @@ class _MainPageState extends State<MainPage> {
         },
       ),
     );
+  }
+
+  Widget _buildListView() {
+    if (currentIndex == 0) {
+      return buildBasicListView();
+    } else if (currentIndex == 1) {
+      return Container();
+    } else if (currentIndex == 2) {
+      return Container();
+    } else {
+      return Container();
+    }
+  }
+
+  Widget buildBasicListView() {
+    
   }
 }
