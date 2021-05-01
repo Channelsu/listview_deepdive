@@ -70,7 +70,33 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-  Widget buildBasicListView() {
-    
-  }
+  Widget buildBasicListView() => ListView(
+    children: <Widget>[
+      ListTile(
+        leading: Icon(Icons.star),
+        title: Text('府中駅前自転車置き場'),
+        subtitle: Text('府中市1-1-7'),
+        trailing: Icon(Icons.arrow_forward_ios),
+      ),
+      ListTile(
+        leading: Icon(Icons.star),
+        title: Text('新宿中央自転車置き場'),
+        subtitle: Text('新宿区3-4-7'),
+        trailing: Icon(Icons.store_mall_directory),
+      ),
+      ListTile(
+        leading: Icon(Icons.star),
+        title: Text('橋の下自転車置き場'),
+        subtitle: Text('狛江市1-32-5'),
+        trailing: Icon(Icons.mood, color: Colors.blue,),
+      ),
+      ListTile(
+        leading: Icon(Icons.delete, color: Colors.red,),
+        title: Text('削除済み'),
+        onTap: () {
+          print('削除済みが押されました。');
+        },
+      ),
+    ],
+  );
 }
