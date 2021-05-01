@@ -33,6 +33,28 @@ class _MainPageState extends State<MainPage> {
         title: Text(widget.title),
       ),
       body: Container(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Text('リストビュー'),
+            title: Text('基本'),
+          ),
+          BottomNavigationBarItem(
+            icon: Text('リストビュー'),
+            title: Text('縦'),
+          ),
+          BottomNavigationBarItem(
+            icon: Text('リストビュー'),
+            title: Text('横'),
+          ),
+        ],
+        onTap: (int index) {
+          setState(() {
+            this.currentIndex = index;
+          });
+        },
+      ),
     );
   }
 }
