@@ -65,7 +65,7 @@ class _MainPageState extends State<MainPage> {
     } else if (currentIndex == 1) {
       return buildVerticalListView();
     } else if (currentIndex == 2) {
-      return Container();
+      return buildHorizontalListView();
     } else {
       return Container();
     }
@@ -101,12 +101,32 @@ class _MainPageState extends State<MainPage> {
     ],
   );
 
-  Widget buildVerticalListView() => ListView.builder(
+  Widget buildVerticalListView() => ListView.separated(
+    separatorBuilder: (context, index) => Divider(color: Colors.black,),
     itemCount: items.length,
     itemBuilder: (context, index) {
       final item = items[index];
-      return Text(item);
+      return ListTile(
+        title: Text(item),
+      );
     },
+  );
 
+  Widget buildHorizontalListView() => Container(
+    height: 100,
+    child: ListView.separated(
+      padding: EdgeInsets.all(16),
+      scrollDirection: Axis.horizontal,
+      separatorBuilder: (context, index) => Divider(),
+      itemCount: items.length,
+      itemBuilder: (BuildContext context, int index) {
+        final item = items[index];
+        return Container(
+          alignment: Alignment.center,
+          margin: EdgeInsets.only(right: 16),
+          child: Text(item),
+        );
+     },
+    ),
   );
 }
